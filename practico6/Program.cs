@@ -15,8 +15,8 @@ texto ingresado es de hecho un número y, en caso afirmativo, realice la inversi
 número sólo si éste es mayor a 0.
 */
 int numero = 0;
-bool esNumero, salir;
-string  numString;
+bool esNumero ;
+string?  numString ="";
 string numInvertido ="";
 
 do
@@ -32,7 +32,7 @@ do
     {
         if (numero > 0)
         {    
-            while (numero > 1)
+            while (numero >= 1)
             {
                 numInvertido = numInvertido + (numero % 10);
                 numero = numero/10;

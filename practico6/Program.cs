@@ -12,9 +12,6 @@ una vez que termine de realizar la operación le pregunte si desea realizar otro
 int opcion;
 string? auxiliarLeer;
 string? auxiliarLeer2;
-int opcion;
-string? auxiliarLeer;
-string? auxiliarLeer2;
 
 float num1= 0, num2 = 0;
 bool correctoNum2 = true, correctoNum1 = true;

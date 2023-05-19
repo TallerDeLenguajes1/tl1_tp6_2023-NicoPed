@@ -97,6 +97,6 @@ do
     }
     else
     {
-        opcion = 99999;
+        opcion = 9999;
     }
 } while (opcion != 0);

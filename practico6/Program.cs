@@ -100,3 +100,53 @@ do
         opcion = 9999;
     }
 } while (opcion != 0);
+
+do
+{
+    Console.WriteLine("========== MENÚ ==========");
+    Console.WriteLine("1. Máximo entre dos numeros");
+    Console.WriteLine("2. Mínimo entre dos numeros");
+    Console.WriteLine("0. Salir");
+    Console.WriteLine("==========================");
+    Console.WriteLine("Ingrese una opcion: ");
+    auxiliarLeer = Console.ReadLine();
+    if (int.TryParse(auxiliarLeer ,out opcion)){
+        if (opcion > 2 || opcion < 0)
+        {
+            Console.WriteLine("Ingrese una opcion correcta");
+        }
+        else if(opcion != 0)
+        {
+            Console.WriteLine("Ingrese un numero: ");
+            auxiliarLeer = Console.ReadLine();
+            correctoNum1 = float.TryParse(auxiliarLeer ,out num1);
+            Console.WriteLine("Ingrese otro numero: ");
+            auxiliarLeer2 = Console.ReadLine();
+            correctoNum2 = float.TryParse(auxiliarLeer2 ,out num2);
+            if (correctoNum1 && correctoNum2)
+            {
+                Console.WriteLine("==========================");
+                switch (opcion)
+                {
+                    case 0: 
+                            Console.WriteLine("Gracias por usarnos :)");
+                        break;
+                    case 1: 
+                            Console.WriteLine("MAX("+num1+","+num2+") = "+ (num1>num2? num1: num2));
+                            Console.WriteLine("MAX("+num1+","+num2+") = "+ (Math.Max(num1,num2)));
+                        break;
+                    case 2: 
+                            Console.WriteLine("MIN("+num1+","+num2+") = "+ (num1<num2? num1: num2));
+                            Console.WriteLine("MIN("+num1+","+num2+") = "+ (Math.Min(num1,num2)));
+                        break;
+                }
+                Console.WriteLine("==========================");
+            }
+        }    
+    }
+    else
+    {
+        opcion = 9999;
+    }
+        
+} while (opcion!=0);

@@ -44,7 +44,7 @@ do
 //================= EJERCICIO 4 =====================
 // Dada una cadena (un string) de texto ingresada por el usuario, realice las siguientes
 // tarea:
-
+/*
 string? cadena, cadena2;
 Console.Write("Ingrese un texto: ");
 cadena = Console.ReadLine();
@@ -140,9 +140,71 @@ foreach (var minicadena in separado.Select((valor,indice) => new {Valor = valor,
     Console.WriteLine($"Índice: {minicadena.Indice}, Valor: {minicadena.Valor}");
 
 }
-
+*/
 // ● Siguiendo con el ejemplo de la calculadora (ejercicio 2) ingrese una ecuación
 // simple como cadena de caracteres y que el sistema lo resuelva. Por ej. ingrese
 // por pantalla “582+2” y que le devuelva la suma de 582 con 2
 Console.WriteLine("========== ESCRIBIR ECUACION ===========");
-string ecuacion;
+string? ecuacion;
+char []operadores = {'+','-','*','/','^','#'};
+float operando1,operando2;
+string aux1, aux2;
+char operador;
+int indice = -1;
+int i = 0;
+
+
+Console.WriteLine("Ingrese una ecuacion ejemplo (1+1)");
+ecuacion = Console.ReadLine();
+if (ecuacion != null)
+{
+    ecuacion = ecuacion.Replace(" ","");
+    while (indice == -1 && operadores[i] != '#' )
+    {
+        indice = ecuacion.IndexOf(operadores[i]);
+        i ++;
+    }
+    
+    if (indice != -1 && operadores[i-1]!='#')
+    {
+        operador = ecuacion[indice];
+        aux1 = ecuacion.Substring(0, indice);
+        aux2 = ecuacion.Substring(indice+1);
+        if (float.TryParse(aux1, out operando1) && float.TryParse(aux2, out operando2))
+        {
+            switch (operador)
+            {
+                case '+':
+                    Console.Write("= "+ (operando1 + operando2));
+                    break;
+                case '-':
+                    Console.Write("= "+ (operando1 - operando2));
+                    break;
+                case '*':
+                    Console.Write("= "+ (operando1 * operando2));
+                    break;
+                case '/':
+                    if (operando2 != 0)
+                    {
+                        Console.Write("= "+ (operando1 / operando2));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Math error");
+                    }
+                    break;
+                case '^':
+                    Console.Write("= "+(Math.Pow(operando1,operando2)));
+                break;
+            }
+        }else
+        {
+            Console.WriteLine("NO INGRESO CORRECTAMENTE UN OPERANDO");
+        }
+    }
+    else
+    {
+        Console.WriteLine("NO INGRESO UNA ECUACION CORRECTA");
+    }
+}
+
